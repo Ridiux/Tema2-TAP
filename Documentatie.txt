@@ -1,0 +1,10 @@
+-Prima data am modificat functia de deserializare din clasa HotelReception pentru a putea procesa mai multe comenzi in acelasi timp prin transformarea fisierului orders.json intr un vector de comenzi si modificarea functiei JsonConvert.DeserializeObject pentru a citi o lista de comenzi.
+-Am implmentat metoda OrderProcess in clasa Order, pentru a aplica Liskov Substitution Principle pentru a "spune" fiecarui order sa se proceseze singur
+(pentru LSP ar fi trebuit minimizate si null checkurile din metoda processOrder din Clasa Order, dar nu am inteles Deserializarea atat de bine incat sa verific datele fiecarui order direct de la citire)
+-Am implementat Clasa Writer pentru a aplica Single Resposibility Principle singura functionalitate a clasei fiind scrierea unui mesaj in consola
+-Am implementat in totalitate interfata IDatabase in Clasa Data (Database.cs) si am minimizat interfata pentru a aplica Interface Segregation Principle
+-Baza de date ar fi trebuit facuta abstracta si implementata intr un mod diferit pentru fiecare tip de comanda, deoarece datele nu sunt identice pentru toate comenzile,
+astfel as fi aplicat Dependency Inversion Principle, si fisierele in care se salveaza si se citesc comenzile ar fi trebuit facute separat.
+-Pentru Open/Closed Principle am incercat sa abstractizez clasa Order pentru a crea clase separate pentru fiecare tip de order si am incercat deserializarea folosind 
+JsonSerializer.Deserialize() din System.Text.Json, incercand sa minimizez null checkurile (LSP) prin deserializarea automata la un anumit tip de Order, dar nu am reusit
+    Incercarea mea se afla in fisierele IncercareOrder.txt si Incercare Reception.txt

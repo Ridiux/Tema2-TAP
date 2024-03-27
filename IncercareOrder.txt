@@ -1,0 +1,55 @@
+namespace Tema2Console
+{
+
+    
+    public abstract class Order
+    {
+
+        public int Quantity { get; set; }  
+                                            //am pastrat atributele Quantity si Price in clasa abstracta deoarece ele sunt singurele comune pentru toate tipurile de Order
+        public decimal Price { get; set; }   
+        
+        //public string ReservationDate { get; set; }  
+        
+        //public string Name { get; set; }   
+        
+        //public string ServingDate { get; set; }     
+
+        public abstract void processOrder();
+
+    }
+
+
+    public class Room:Order
+    {
+        public string ReservationDate { get; set; }
+
+        public override void processOrder()
+        {
+            Console.WriteLine(ReservationDate);
+        }
+    }
+
+
+    public class Product:Order
+    {
+        public string Name { get; set; }
+
+        public override void processOrder()
+        {
+            Console.WriteLine(Name);
+        }
+    }
+
+
+    public class Breakfast:Order
+    {
+        public string ServingDate { get; set; }
+
+        public override void processOrder()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+}
